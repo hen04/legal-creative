@@ -1,0 +1,45 @@
+$mobile: 360px;
+$portrait: 768px;
+$landscape: 1024px;
+$desktop: 1280px;
+
+@mixin responsive($media) {
+	@if $media == mobile {
+		@media only screen and (max-width: $portrait - 1) {
+			@content;
+		}
+	}
+	@else if $media == tablet {
+		@media only screen and (min-width: $portrait) and (max-width: $desktop - 1) {
+			@content;
+		}
+	}
+	@else if $media == tabletdesktop {
+		@media only screen and (min-width: $portrait) {
+			@content;
+		}
+	}
+	@else if $media == landscapedesktop {
+		@media only screen and (min-width: $landscape) {
+			@content;
+		}
+	}
+	@else if $media == device {
+		@media only screen and (max-width: $landscape - 1) {
+			@content;
+		}
+	}
+	@else if $media == desktop {
+		@media only screen and (min-width: $landscape) {
+			@content;
+		}
+	}
+}
+
+@mixin paddingBlock() {
+	padding: 60px 0 70px;
+	
+	@include responsive(desktop) {
+		padding: 120px 0 140px;
+	}
+}

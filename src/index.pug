@@ -1,0 +1,19 @@
+extends templates/layout
+
+block content
+	.courses
+		h2 Курсы
+		.courses__list
+			each item in course.slice(0,4)
+				.courses__item
+					.courses__type= item.type
+					.courses__name
+						h3
+							a(href="")= item.name
+						p= item.descr
+					.courses__price
+						p.date= item.date
+						p.price= item.price
+					.courses__link
+						a(href="course-item.html")
+		a(href="courses.html" class="btn btn--outline") Все курсы

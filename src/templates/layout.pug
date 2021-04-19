@@ -1,0 +1,63 @@
+doctype html
+html(lang="ru")
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport" content="width=device-width, initial-scale=1.0")
+		meta(http-equiv="X-UA-Compatible" content="ie=edge")
+		title Пример для быстрого старта проекта
+		meta(name="description" content="")
+		meta(name="keywords" content="")
+		link(rel="preconnect" href="https://fonts.gstatic.com")
+		link(href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet")
+		link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css")
+		link(rel="stylesheet" href="css/main-style.css")
+
+	body
+		div(class="container" data-scroll-container)
+			header.header
+				.header__top
+					.header__logo
+						a(href="/")
+							img(src="images/logo.svg" alt="legal&creative")
+					nav.header__menu
+						ul
+							each item in menu
+								li
+									a(href= item.url)= item.title
+				.header__title
+					h1
+						span.legal юридическая
+						span.platform платформа
+							span.small для
+						span.creative креативной
+						span.industry индустрии
+					.subtitle основы для защиты прав и интересов
+				.header__bottom
+					p Художники, продюсеры, дизайнеры, режиссеры, маркетологи, писатели, блогеры, юристы, архитекторы, веб-дизайнеры, иллюстраторы, дизайнеры интерьеров
+			main
+				block content
+			footer.footer
+				nav.footer__menu
+					ul
+						each item in menu
+							li
+								a(href= item.url)= item.title
+				.footer__bottom
+					.footer__contacts
+						.footer__mail
+							a(href="mailto:irina-nik@list.ru") irina-nik@list.ru
+						.footer__social-network
+							a(href="" target="_blank") facebook
+							a(href="" target="_blank") instagram
+							a(href="" target="_blank") telegram
+					.footer__terms
+						a(href="") пользовательское соглашение
+						a(href="") политика конфиденциальности
+						a(href="") юридическая информация
+
+
+		script(src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js")
+		script(src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.0/gsap.min.js")
+		script(src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.0/ScrollTrigger.min.js")
+		script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js")
+		script(src="js/main-script.js")
