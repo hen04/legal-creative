@@ -7,7 +7,7 @@ block content
 			each item in course.slice(0,4)
 				.courses__item
 					.courses__type= item.type
-					.courses__name
+					.courses__descr
 						h3
 							a(href="")= item.name
 						p= item.descr
@@ -17,3 +17,52 @@ block content
 					.courses__link
 						a(href="course-item.html")
 		a(href="courses.html" class="btn btn--outline") Все курсы
+
+	.webinars.bg-black
+		h2 Вебинары
+		.webinars__list
+			each item in course.slice(0,2)
+				.webinars__item
+					.webinars__descr
+						h3
+							a(href="")= item.name
+						p= item.descr
+					.webinars__price
+						p.date= item.date
+						p.price= item.price
+					.webinars__button
+						a(href="webinars-item.html" class="btn btn--sm btn--outline") Подробнее
+		a(href="courses.html" class="btn btn--white") Все вебинары
+
+	.courses
+		h2 Нетворкинг
+		.courses__list
+			each item in course.slice(0,1)
+				.courses__item
+					.courses__type event
+					.courses__descr
+						h3
+							a(href="")= item.name
+						p= item.descr
+					.courses__price
+						p.date= item.date
+						p.price= item.price
+					.courses__link
+						a(href="course-item.html")
+		a(href="courses.html" class="btn btn--outline") Все мероприятия
+
+	.experts.bg-black
+		h2 Эксперты
+		.experts__list
+			each item in experts.slice(0,2)
+				.experts__item
+					.experts__img
+						img(src= item.img alt= item.name)
+					.experts__descr
+						h3= item.name
+						p= item.descr.slice(0,150) + '...'
+		a(href="experts.html" class="btn btn--white") Все эксперты
+
+
+
+
