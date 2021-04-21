@@ -12,12 +12,55 @@ body {
 	@include responsive(desktop) {
 		font: normal 20px/160% 'Inter', sans-serif;
 	}
+	
+	&.menu-opened {
+		main,
+		footer {
+			display: none;
+		}
+	}
 }
 
 h2,
 h3 {
 	font-weight: 500;
 	margin: 0;
+}
+
+h2 {
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-size: 40px;
+	line-height: 1;
+	margin-bottom: 20px;
+	padding: 0 20px;
+	
+	@include responsive(desktop) {
+		font-size: 80px;
+		padding: 0 40px;
+		margin-bottom: 40px;
+	}
+}
+
+h3 {
+	line-height: 150%;
+	font-size: 24px;
+	text-transform: uppercase;
+	margin-bottom: .5rem;
+	
+	@include responsive(landscape) {
+		font-size: 40px;
+		margin-bottom: 20px;
+	}
+	
+	@include responsive(desktop) {
+		font-size: 32px;
+		margin-bottom: 20px;
+	}
+
+	a {
+		text-decoration: none;
+	}
 }
 
 p {
@@ -50,9 +93,9 @@ a {
 	display: flex;
 	flex-flow: column;
 	padding: 20px;
-	
+	height: 100vh;
+
 	@include responsive(desktop) {
-		height: 100vh;
 		padding: 40px;
 	}
 
@@ -65,6 +108,7 @@ a {
 	a {
 		color: $white;
 		text-decoration: none;
+		display: flex;
 	}
 	
 	&__logo {
@@ -76,31 +120,63 @@ a {
 	&__top {
 		display: flex;
 		justify-content: space-between;
-		align-content: center;
+		align-items: center;
 	}
 	
 	&__menu {
-		@include responsive(mobile) {
-			display: none;
-		}
-		
 		display: flex;
 		align-items: center;
-		
+
+		@include responsive(device) {
+			display: none;
+		}
+
 		li {
-			font-size: 24px;
 			list-style: none;
 			margin: 0 20px;
+			
+			@include responsive(device) {
+				margin: 0 0 20px;
+			}
+
+			&:first-child {
+				margin-left: 0;
+			}
+
+			&:last-child {
+				margin-right: 0;
+			}
+
+			@include responsive(desktop) {
+				font-size: 24px;
+			}
+
+			@include responsive(landscapedesktop) {
+				font-size: 20px;
+			}
+		}
+		
+		&.opened {
+			display: flex;
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			top: 72px;
+			left: 0;
+			background-color: $black;
+			align-items: flex-start;
+			padding-top: 20px;
+			
+			ul {
+				flex-flow: column;
+				padding: 0 20px;
+			}
 		}
 	}
 	
 	&__title {
 		color: $white;
-		margin: 40px 0 80px;
-		
-		@include responsive(desktop) {
-			margin: auto 0;
-		}
+		margin: auto 0;
 		
 		h1 {
 			font-weight: 500;
@@ -108,12 +184,19 @@ a {
 			margin: 0;
 			font-size: 38px;
 			letter-spacing: 1px;
-			line-height: 125%;
-			
-			@include responsive(desktop) {
+			line-height: 1;
+
+			@include responsive(largedesktop) {
 				letter-spacing: 2px;
-				line-height: 1;
 				font-size: 120px;
+			}
+
+			@include responsive(desktop) {
+				font-size: 100px;
+			}
+
+			@include responsive(tablet) {
+				font-size: 80px;
 			}
 		}
 		
@@ -121,8 +204,16 @@ a {
 			display: block;
 			
 			&.legal {
-				@include responsive(desktop) {
+				@include responsive(tablet) {
+					margin-left: 6%;
+				}
+
+				@include responsive(landscapedesktop) {
 					margin-left: 10%;
+				}
+				
+				@include responsive(largedesktop) {
+					margin-left: 17%;
 				}
 			}
 			
@@ -131,8 +222,16 @@ a {
 				display: flex;
 				align-items: baseline;
 
-				@include responsive(desktop) {
-					margin-left: 30%;
+				@include responsive(tablet) {
+					margin-left: 15%;
+				}
+
+				@include responsive(landscapedesktop) {
+					margin-left: 20%;
+				}
+
+				@include responsive(largedesktop) {
+					margin-left: 31%;
 				}
 			}
 			
@@ -148,13 +247,29 @@ a {
 			}
 			
 			&.creative {
-				@include responsive(desktop) {
-					margin-left: 30%;
+				@include responsive(tablet) {
+					margin-left: 15%;
+				}
+
+				@include responsive(landscapedesktop) {
+					margin-left: 20%;
+				}
+
+				@include responsive(largedesktop) {
+					margin-left: 31%;
 				}
 			}
 			
 			&.industry {
+				@include responsive(tablet) {
+					margin-left: 25%;
+				}
+
 				@include responsive(desktop) {
+					margin-left: 40%;
+				}
+				
+				@include responsive(largedesktop) {
 					margin-left: 45%;
 				}
 			}
@@ -168,11 +283,20 @@ a {
 			
 			@include responsive(mobile) {
 				margin-top: 20px;
+				font-size: 16px;
 			}
-			
+
+			@include responsive(tablet) {
+				margin-left: 7%;
+			}
+
 			@include responsive(desktop) {
 				margin-left: 10%;
 				font-size: 32px;
+			}
+			
+			@include responsive(largedesktop) {
+				margin-left: 17%;
 			}
 		}
 	}
@@ -182,12 +306,33 @@ a {
 		color: $white;
 		max-width: 600px;
 
+		@include responsive(tablet) {
+			margin-left: 26%;
+		}
+
 		@include responsive(desktop) {
+			margin-left: 41%;
+		}
+		
+		@include responsive(largedesktop) {
 			margin-left: 45%;
 		}
 	}
 }
 
+.mobile-menu {
+	@include responsive(device) {
+		width: 40px;
+		height: 40px;
+		background: url(../images/icon-menu.svg) 0 0 no-repeat;
+	}
+	
+	&.active {
+		@include responsive(device) {
+			background: url(../images/icon-close.svg) 0 0 no-repeat;
+		}
+	}
+}
 
 .footer {
 	background-color: $black;
@@ -195,16 +340,16 @@ a {
 	box-sizing: border-box;
 	display: flex;
 	flex-flow: column;
-	padding: 20px;
+	padding: 20px 20px 4px;
 	
-	@include responsive(desktop) {
-		padding: 40px;
+	@include responsive(landscapedesktop) {
+		padding: 40px 40px 24px;
 	}
 	
 	&__menu {
 		margin-bottom: 100px;
 
-		@include responsive(desktop) {
+		@include responsive(tabletdesktop) {
 			margin-left: auto;
 			margin-bottom: 160px;
 		}
@@ -223,7 +368,7 @@ a {
 		li {
 			margin: 0 0 1rem;
 
-			@include responsive(desktop) {
+			@include responsive(tabletdesktop) {
 				margin: 0 20px;
 			}
 
@@ -246,13 +391,23 @@ a {
 		display: flex;
 		flex-flow: wrap;
 		
-		@include responsive(desktop) {
+		@include responsive(mobile) {
+			flex-flow: column;
+		}
+		
+		@include responsive(tabletdesktop) {
 			justify-content: space-between;
 			align-items: flex-end;
 		}
 	}
 	
 	&__contacts {
+		padding-bottom: 16px;
+		
+		@include responsive(tabletdesktop) {
+			padding-right: 20px;
+		}
+
 		a {
 			color: $white;
 			text-decoration: none;
@@ -276,19 +431,29 @@ a {
 	}
 	
 	&__terms {
+		padding-bottom: 16px;
+
 		@include responsive(mobile) {
 			margin-top: 2rem;
 		}
 
 		a {
+			color: $gray-400;
+			text-decoration: none;
+			margin: 0 10px;
+
 			@include responsive(mobile) {
 				display: block;
 				margin: 0 0 10px;
 			}
-			
-			color: $white;
-			text-decoration: none;
-			margin: 0 10px;
+
+			@include responsive(device) {
+				font-size: 14px;
+			}
+
+			@include responsive(landscapedesktop) {
+				font-size: 16px;
+			}
 
 			&:first-child {
 				margin-left: 0;
@@ -307,25 +472,11 @@ a {
 	display: flex;
 	flex-flow: column;
 
-	h2 {
-		text-transform: uppercase;
-		letter-spacing: 2px;
-		font-size: 40px;
-		margin-bottom: 20px;
-		padding: 0 20px;
-		
-		@include responsive(desktop) {
-			font-size: 80px;
-			padding: 0 40px;
-			margin-bottom: 40px;
-		}
-	}
-
 	&__list {
 		border-bottom: 2px solid $black;
 		margin-bottom: 40px;
 		
-		@include responsive(desktop) {
+		@include responsive(tabletdesktop) {
 			margin-bottom: 56px;
 		}
 	}
@@ -341,8 +492,12 @@ a {
 			flex-flow: column;
 			padding: 32px 20px 20px;
 		}
+		
+		@include responsive(device) {
+			padding: 32px 20px 20px;
+		}
 
-		@include responsive(desktop) {
+		@include responsive(landscapedesktop) {
 			padding: 40px;
 		}
 
@@ -381,40 +536,32 @@ a {
 		@include responsive(mobile) {
 			margin-bottom: 8px;
 		}
+		
+		@include responsive(tablet) {
+			width: 100%;
+		}
 
 		@include responsive(desktop) {
 			font-size: 24px;
-			width: 16.1%;
+			width: 17%;
 		}
 	}
 	
-	&__name {
-		@include responsive(desktop) {
-			width: 48%;
-			padding: 0 20px;
-			box-sizing: border-box;
-		}
+	&__descr {
+		box-sizing: border-box;
 
-		h3 {
-			line-height: 150%;
-			font-size: 24px;
-			text-transform: uppercase;
-			margin-bottom: .5rem;
-			
-			@include responsive(landscape) {
-				font-size: 40px;
-				margin-bottom: 20px;
-			}
-			
-			@include responsive(desktop) {
-				font-size: 32px;
-				margin-bottom: 20px;
-			}
+		@include responsive(tablet) {
+			width: 66%;
+			padding-right: 20px;
 		}
 		
+		@include responsive(desktop) {
+			width: 58%;
+			padding: 0 20px;
+		}
+
 		a {
 			color: $black;
-			text-decoration: none;
 		}
 		
 		p {
@@ -423,29 +570,24 @@ a {
 	}
 	
 	&__price {
-		@include responsive(desktop) {
-			width: 17%;
-		}
-
-		.date {
-			margin-bottom: 4px;
-			text-transform: uppercase;
+		@include responsive(tablet) {
+			width: calc(34% - 80px);
 		}
 		
-		.price {
-			font-weight: 700;
+		@include responsive(desktop) {
+			width: calc(25% - 80px);
 		}
 	}
-	
+
 	&__link {
 		display: flex;
 		justify-content: flex-end;
 		margin: auto 0 0 auto;
-
-		@include responsive(desktop) {
-			width: 17%;
-		}
 		
+		@include responsive(tabletdesktop) {
+			width: 80px;
+		}
+
 		a {
 			width: 75px;
 			height: 48px;
@@ -453,6 +595,19 @@ a {
 			background: url(../images/icon-arrow-right.svg) 0 0 no-repeat;
 		}
 	}
+
+	.btn--outline {
+		border-color:  $black;
+	}
+}
+
+.date {
+	margin-bottom: 4px;
+	text-transform: uppercase;
+}
+
+.price {
+	font-weight: 700;
 }
 
 .btn {
@@ -474,7 +629,151 @@ a {
 		color: $white;
 	}
 	
+	&--sm {
+		font-size: 16px;
+	}
+	
 	&--outline {
+		border: 2px solid;
+	}
+	
+	&--white {
+		background-color: $white;
 		border: 2px solid $black;
+
+		&:hover {
+			border-color: $white;
+		}
+	}
+}
+
+.bg-black {
+	background-color: $black;
+}
+
+.webinars {
+	@include paddingBlock();
+	color: $white;
+	display: flex;
+	flex-flow: column;
+	
+	&__list {
+		display: flex;
+		margin-bottom: 56px;
+		
+		@include responsive(mobile) {
+			flex-flow: column;
+		}
+	}
+	
+	&__item {
+		padding: 20px;
+		border: 10px solid $black;
+		box-sizing: border-box;
+		transition: $transition;
+		display: flex;
+		flex-flow: column;
+		
+		@include responsive(tablet) {
+			width: 50%;
+		}
+		
+		@include responsive(desktop) {
+			width: 50%;
+			margin: 0 20px;
+		}
+		
+		&:hover {
+			border-color: $pink;
+			
+			.btn {
+				border-color: $pink;
+				background-color: $pink;
+			}
+		}
+	}
+	
+	&__descr {
+		margin-bottom: 40px;
+
+		@include responsive(tabletdesktop) {
+			margin-bottom: 56px;
+		}
+
+		a {
+			color: $white
+		}
+	}
+	
+	&__price {
+		margin-top: auto;
+	}
+	
+	&__button {
+		margin-top: 32px;
+
+		.btn {
+			color: $white;
+			
+		}
+	}
+
+	.btn--outline {
+		border-color:  $white;
+	}
+}
+
+.experts {
+	@include paddingBlock();
+	color: $white;
+	display: flex;
+	flex-flow: column;
+	
+	&__list {
+		display: flex;
+		margin-bottom: 56px;
+		
+		@include responsive(mobile) {
+			flex-flow: column;
+		}
+	}
+	
+	&__item {
+		display: flex;
+		padding: 0 20px;
+		flex-flow: wrap;
+
+		@include responsive(device) {
+			flex-flow: column;
+			margin-bottom: 40px;
+		}
+		
+		@include responsive(landscapedesktop) {
+			padding: 0 40px;
+			width: 50%;
+		}
+		
+		@include responsive(largedesktop) {
+			flex-flow: nowrap;
+		}
+		
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+	
+	&__img {
+		border-radius: 25px;
+		display: flex;
+		justify-content: center;
+		min-width: 290px;
+		height: 290px;
+		overflow: hidden;
+		background: linear-gradient(224.97deg, #D745E3 15.29%, #5581F3 84.12%);
+		margin-bottom: 20px;
+		
+		@include responsive(landscapedesktop) {
+			margin-right: 20px;
+		}
 	}
 }
