@@ -1320,8 +1320,11 @@ a {
       padding-right: 16%; } }
   .you-learn__list {
     counter-reset: section; }
+  .you-learn h3 {
+    color: #fff; }
   .you-learn__item {
-    position: relative; }
+    position: relative;
+    color: #fff; }
     @media only screen and (max-width: 1023px) {
       .you-learn__item {
         padding: 24px 0 24px 40px; } }
@@ -1355,7 +1358,7 @@ a {
       right: 0;
       bottom: 0;
       height: 2px;
-      background-color: #000; }
+      background-color: #fff; }
     @media only screen and (min-width: 1024px) {
       .you-learn__item p {
         font-size: 24px; } }
