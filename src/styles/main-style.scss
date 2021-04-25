@@ -1260,8 +1260,13 @@ a {
 		counter-reset: section;
 	}
 
+	h3 {
+		color: $white;
+	}
+	
 	&__item {
 		position: relative;
+		color: $white;
 		
 		@include responsive(device) {
 			padding: 24px 0 24px 40px;
@@ -1304,11 +1309,10 @@ a {
 			right: 0;
 			bottom: 0;
 			height: 2px;
-			background-color: $black;
+			background-color: $white;
 		}
 		
 		p {
-			
 			@include responsive(desktop) {
 				font-size: 24px;
 			}
