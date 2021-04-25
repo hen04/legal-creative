@@ -1,53 +1,48 @@
 "use strict";
 
-$(function (){
-
-	$('.js-mobile-menu').on('click', function (){
-		$(this).toggleClass('active');
-		$('.header__menu').toggleClass('opened');
-		$('body').toggleClass('menu-opened');
-	});
-})
-
-
-
-
-
-
-
-
-
-
 const scroller = new LocomotiveScroll({
 	el: document.querySelector('[data-scroll-container]'),
 	smooth: true
 })
 
-gsap.registerPlugin(ScrollTrigger)
 
+$(function () {
 
-scroller.on('scroll', ScrollTrigger.update)
+	$('.js-mobile-menu').on('click', function () {
+		$(this).toggleClass('active');
+		$('.header__menu').toggleClass('opened');
+		$('body').toggleClass('menu-opened');
+	});
 
-ScrollTrigger.scrollerProxy(
-	'.container', {
-		scrollTop(value) {
-			return arguments.length ?
-				scroller.scrollTo(value, 0, 0) :
-				scroller.scroll.instance.scroll.y
+	$("#course-registration").validate({
+		rules: {
+			tel: {
+				number: true
+			}
 		},
-		getBoundingClientRect() {
-			return {
-				left: 0, top: 0,
-				width: window.innerWidth,
-				height: window.innerHeight
+		messages: {
+			name: {
+				required: "Это поле обязательно для заполнения",
+			},
+			email: {
+				required: "Это поле обязательно для заполнения",
+				email: "Адрес должен быть вида mail@mail.ru"
+			},
+			tel: {
+				required: "Это поле обязательно для заполнения",
+				number: "Номер должен быть формата +7 (999) 999-99-99"
 			}
 		}
-	}
-)
+	})
+
+});
 
 
 
-ScrollTrigger.addEventListener('refresh', () => scroller.update())
 
 
-ScrollTrigger.refresh()
+
+
+
+
+

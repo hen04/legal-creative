@@ -1,67 +1,91 @@
 extends templates/layout
+include templates/_mixin-menu
 
 block content
-	.courses
-		h2 Курсы
-		.courses__list
-			each item in course.slice(0,4)
-				.courses__item
-					.courses__type= item.type
-					.courses__descr
-						h3
-							a(href="")= item.name
-						p= item.descr
-					.courses__price
-						p.date= item.date
-						p.price= item.price
-					.courses__link
-						a(href="course-item.html")
-		a(href="courses.html" class="btn btn--outline") Все курсы
+	header.header
+		.header__top
+			.header__logo
+				a(href="/")
+					img(src="images/logo.svg" alt="legal&creative")
+			.mobile-menu.js-mobile-menu
+			nav.header__menu
+				-var current = "index.html"
+				+menu(current)
+		.header__title
+			h1
+				span.legal юридическая
+				span.platform платформа
+					span.small для
+				span.creative креативной
+				span.industry индустрии
+			.subtitle основы для защиты прав и интересов
+		.header__bottom
+			.header-target
+				p Художники, продюсеры, дизайнеры, режиссеры, маркетологи, писатели, блогеры, юристы, архитекторы, веб-дизайнеры, иллюстраторы, дизайнеры интерьеров
 
-	.webinars.bg-black
-		h2 Вебинары
-		.webinars__list
-			each item in course.slice(0,2)
-				.webinars__item
-					.webinars__descr
-						h3
-							a(href="")= item.name
-						p= item.descr
-					.webinars__price
-						p.date= item.date
-						p.price= item.price
-					.webinars__button
-						a(href="webinars-item.html" class="btn btn--sm btn--outline") Подробнее
-		a(href="courses.html" class="btn btn--white") Все вебинары
+	main
+		.courses
+			h2 Курсы
+			.courses__list
+				each item, i in course.slice(0,4)
+					.courses__item(data-scroll data-scroll-repeat data-scroll-delay= i*2)
+						.courses__type= item.type
+						.courses__descr
+							h4
+								a(href="")= item.name
+							p= item.descr
+						.courses__price
+							p.date= item.date
+							p.price= item.price
+						.courses__link
+							a(href="course-item.html")
+			a(href="courses.html" class="btn btn--outline") Все курсы
 
-	.courses
-		h2 Нетворкинг
-		.courses__list
-			each item in course.slice(0,1)
-				.courses__item
-					.courses__type event
-					.courses__descr
-						h3
-							a(href="")= item.name
-						p= item.descr
-					.courses__price
-						p.date= item.date
-						p.price= item.price
-					.courses__link
-						a(href="course-item.html")
-		a(href="courses.html" class="btn btn--outline") Все мероприятия
+		.webinars.bg-black
+			h2 Вебинары
+			.webinars__list
+				each item in course.slice(0,2)
+					.webinars__item
+						.webinars__descr
+							h4
+								a(href="")= item.name
+							p= item.descr
+						.webinars__price
+							p.date= item.date
+							p.price= item.price
+						.webinars__button
+							a(href="webinar-item.html" class="btn btn--sm btn--outline") Подробнее
+			a(href="webinars.html" class="btn btn--white") Все вебинары
 
-	.experts.bg-black
-		h2 Эксперты
-		.experts__list
-			each item in experts.slice(0,2)
-				.experts__item
-					.experts__img
-						img(src= item.img alt= item.name)
-					.experts__descr
-						h3= item.name
-						p= item.descr.slice(0,150) + '...'
-		a(href="experts.html" class="btn btn--white") Все эксперты
+		.courses
+			h2 Нетворкинг
+			.courses__list
+				each item in course.slice(0,1)
+					.courses__item
+						.courses__type event
+						.courses__descr
+							h4
+								a(href="")= item.name
+							p= item.descr
+						.courses__price
+							p.date= item.date
+							p.price= item.price
+						.courses__link
+							a(href="course-item.html")
+			a(href="courses.html" class="btn btn--outline") Все мероприятия
+
+		.experts.bg-black
+			h2 Эксперты
+			.experts__list
+				each item in experts.slice(0,2)
+					.experts__item
+						.experts__img
+							img(src= item.img alt= item.name)
+						.experts__descr
+							h4= item.name
+							p
+								span= item.description.slice(0,320) + "..."
+			a(href="experts.html" class="btn btn--white") Все эксперты
 
 
 
