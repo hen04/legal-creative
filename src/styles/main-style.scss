@@ -47,7 +47,7 @@ h3 {
 	text-transform: uppercase;
 
 	@include responsive(device) {
-		font-size: 28px;
+		font-size: 26px;
 		margin-bottom: 24px;
 	}
 	
@@ -932,18 +932,22 @@ a {
 	}
 	
 	&__item {
-		padding: 20px;
 		box-sizing: border-box;
 		transition: $transition;
 		display: flex;
 		flex-flow: column;
 		border: 10px solid transparent;
-
+		
+		@include responsive(device) {
+			padding: 10px;
+		}
+		
 		@include responsive(tablet) {
 			width: 50%;
 		}
 		
 		@include responsive(desktop) {
+			padding: 20px;
 			width: calc(50% - 40px);
 			margin: 0 20px 20px;
 		}

@@ -344,7 +344,7 @@ h3 {
   text-transform: uppercase; }
   @media only screen and (max-width: 1023px) {
     h3 {
-      font-size: 28px;
+      font-size: 26px;
       margin-bottom: 24px; } }
   @media only screen and (min-width: 1024px) {
     h3 {
@@ -1058,7 +1058,6 @@ a {
         -ms-flex-flow: column;
         flex-flow: column; } }
   .webinars__item {
-    padding: 20px;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     -webkit-transition: 0.3s ease-in-out;
@@ -1071,11 +1070,15 @@ a {
     -ms-flex-flow: column;
     flex-flow: column;
     border: 10px solid transparent; }
+    @media only screen and (max-width: 1023px) {
+      .webinars__item {
+        padding: 10px; } }
     @media only screen and (min-width: 768px) and (max-width: 1279px) {
       .webinars__item {
         width: 50%; } }
     @media only screen and (min-width: 1024px) {
       .webinars__item {
+        padding: 20px;
         width: calc(50% - 40px);
         margin: 0 20px 20px; } }
     .webinars__item:hover {
