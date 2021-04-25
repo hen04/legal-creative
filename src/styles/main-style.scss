@@ -22,7 +22,9 @@ body {
 }
 
 h2,
-h3 {
+h3,
+h4,
+h5 {
 	font-weight: 500;
 	margin: 0;
 }
@@ -33,22 +35,35 @@ h2 {
 	font-size: 40px;
 	line-height: 1;
 	margin-bottom: 20px;
-	padding: 0 20px;
 	
 	@include responsive(desktop) {
 		font-size: 80px;
-		padding: 0 40px;
 		margin-bottom: 40px;
 	}
 }
 
 h3 {
-	line-height: 150%;
+	line-height: 125%;
+	text-transform: uppercase;
+
+	@include responsive(device) {
+		font-size: 28px;
+		margin-bottom: 24px;
+	}
+	
+	@include responsive(landscapedesktop) {
+		font-size: 64px;
+		margin-bottom: 48px;
+	}
+}
+
+h4 {
+	line-height: 125%;
 	font-size: 24px;
 	text-transform: uppercase;
 	margin-bottom: .5rem;
 	
-	@include responsive(landscape) {
+	@include responsive(landscapedesktop) {
 		font-size: 40px;
 		margin-bottom: 20px;
 	}
@@ -86,6 +101,14 @@ a {
 	}
 }
 
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
 
 .header {
 	background-color: $black;
@@ -93,7 +116,9 @@ a {
 	display: flex;
 	flex-flow: column;
 	padding: 20px 20px 60px;
-	height: 100vh;
+	min-height: 100vh;
+	opacity: 0;
+	animation: fadeIn 2s forwards;
 
 	@include responsive(desktop) {
 		padding: 40px;
@@ -112,6 +137,9 @@ a {
 	}
 	
 	&__logo {
+		opacity: 0;
+		animation: fadeIn 1s .4s forwards;
+
 		img {
 			max-width: 200px;
 		}
@@ -124,6 +152,8 @@ a {
 	}
 	
 	&__menu {
+		opacity: 0;
+		animation: fadeIn 1s .4s forwards;
 		display: flex;
 		align-items: center;
 
@@ -156,9 +186,16 @@ a {
 			}
 		}
 		
+		a {
+			&.current {
+				opacity: .5;
+			}
+		}
+		
 		&.opened {
 			display: flex;
 			position: absolute;
+			z-index: 9;
 			right: 0;
 			bottom: 0;
 			top: 72px;
@@ -182,9 +219,9 @@ a {
 			font-weight: 500;
 			text-transform: uppercase;
 			margin: 0;
-			font-size: 38px;
+			font-size: 32px;
 			letter-spacing: 1px;
-			line-height: 1;
+			line-height: 1.15;
 
 			@include responsive(largedesktop) {
 				letter-spacing: 2px;
@@ -196,7 +233,7 @@ a {
 			}
 
 			@include responsive(tablet) {
-				font-size: 80px;
+				font-size: 72px;
 			}
 		}
 		
@@ -204,6 +241,8 @@ a {
 			display: block;
 			
 			&.legal {
+				opacity: 0;
+				animation: fadeIn 1s .6s forwards;
 				@include responsive(tablet) {
 					margin-left: 6%;
 				}
@@ -218,6 +257,8 @@ a {
 			}
 			
 			&.platform {
+				opacity: 0;
+				animation: fadeIn 1s .8s forwards;
 				color: $pink;
 				display: flex;
 				align-items: baseline;
@@ -239,6 +280,8 @@ a {
 				color: $white;
 				font-size: 16px;
 				margin-left: 8px;
+				opacity: 0;
+				animation: fadeIn 1s 1s forwards;
 				
 				@include responsive(desktop) {
 					margin-left: 20px;
@@ -247,6 +290,9 @@ a {
 			}
 			
 			&.creative {
+				opacity: 0;
+				animation: fadeIn 1s 1.2s forwards;
+
 				@include responsive(tablet) {
 					margin-left: 15%;
 				}
@@ -261,6 +307,8 @@ a {
 			}
 			
 			&.industry {
+				opacity: 0;
+				animation: fadeIn 1s 1.4s forwards;
 				@include responsive(tablet) {
 					margin-left: 25%;
 				}
@@ -273,6 +321,14 @@ a {
 					margin-left: 45%;
 				}
 			}
+			
+			&.title {
+				opacity: 0;
+				animation: fadeIn 1s .8s forwards;
+				@include responsive(largedesktop) {
+					margin-left: 16%;
+				}
+			}
 		}
 		
 		.subtitle {
@@ -280,7 +336,9 @@ a {
 			font-weight: 500;
 			color: $pink;
 			font-size: 24px;
-			
+			opacity: 0;
+			animation: fadeIn 1s 1.6s forwards;
+
 			@include responsive(mobile) {
 				margin-top: 20px;
 				font-size: 16px;
@@ -304,21 +362,104 @@ a {
 	&__bottom {
 		margin-top: auto;
 		color: $white;
-		max-width: 600px;
 
-		@include responsive(tablet) {
-			margin-left: 26%;
-		}
+		.header-target {
+			width: 100%;
+			max-width: 600px;
+			opacity: 0;
+			animation: fadeIn 1s 2s forwards;
 
-		@include responsive(desktop) {
-			margin-left: 41%;
-		}
-		
-		@include responsive(largedesktop) {
-			margin-left: 45%;
+			@include responsive(tablet) {
+				margin-left: 26%;
+			}
+
+			@include responsive(desktop) {
+				margin-left: 41%;
+			}
+
+			@include responsive(largedesktop) {
+				margin-left: 46%;
+			}
 		}
 	}
 }
+
+.header-bottom {
+	display: flex;
+	
+	@include responsive(mobile) {
+		flex-flow: column;
+	}
+	
+	@include responsive(tablet) {
+		flex-flow: wrap;
+	}
+
+	@include responsive(largedesktop) {
+		margin: 0 16%;
+	}
+	
+	&__item {
+		min-width: 280px;
+		box-sizing: border-box;
+		opacity: 0;
+
+		@include responsive(tablet) {
+			width: 50%;
+		}
+
+		@include responsive(device) {
+			margin-bottom: 20px;
+		}
+
+		@include responsive(desktop) {
+			padding-right: 20px;
+		}
+
+		&:last-child {
+			padding-right: 0;
+			margin-bottom: 0;
+		}
+		
+		&:nth-child(1) {
+			animation: fadeIn 1s 1.2s forwards;
+		}
+
+		&:nth-child(2) {
+			animation: fadeIn 1s 1.6s forwards;
+		}
+
+		&:nth-child(3) {
+			animation: fadeIn 1s 2s forwards;
+		}
+
+		&:nth-child(4) {
+			animation: fadeIn 1s 2.4s forwards;
+		}
+	}
+	
+	svg {
+		@include responsive(device) {
+			font-size: 24px;
+		}
+		@include responsive(desktop) {
+			font-size: 42px;
+		}
+	}
+	
+	p {
+		text-transform: uppercase;
+		letter-spacing: .25px;
+		font-size: 18px;
+		line-height: 1.3;
+		
+		span {
+			display: block;
+		}
+	}
+}
+
+
 
 .mobile-menu {
 	@include responsive(device) {
@@ -472,6 +613,14 @@ a {
 	display: flex;
 	flex-flow: column;
 
+	h2 {
+		padding: 0 20px;
+		
+		@include responsive(desktop) {
+			padding: 0 40px;
+		}
+	}
+
 	&__list {
 		border-bottom: 2px solid $black;
 		margin-bottom: 40px;
@@ -486,7 +635,8 @@ a {
 		align-items: baseline;
 		flex-flow: wrap;
 		position: relative;
-		transition: $transition;
+		transition: background .3s ease-in-out, color .3s ease-in-out, opacity 2s ease-in-out;
+		//opacity: 0;
 		
 		@include responsive(mobile) {
 			flex-flow: column;
@@ -511,7 +661,6 @@ a {
 			top: 0;
 		}
 
-
 		&:hover {
 			background-color: $violet;
 			color: $white;
@@ -525,6 +674,10 @@ a {
 					background-image: url('../images/icon-arrow-right-white.svg');
 				}
 			}
+		}
+		
+		&.is-inview {
+			//opacity: 1;
 		}
 	}
 	
@@ -623,10 +776,12 @@ a {
 	@include responsive(desktop) {
 		font-size: 32px;
 	}
-	
+
+	&:focus,
 	&:hover {
 		background-color: $black;
 		color: $white;
+		outline: none;
 	}
 	
 	&--sm {
@@ -635,6 +790,13 @@ a {
 	
 	&--outline {
 		border: 2px solid;
+
+		&:focus,
+		&:active,
+		&:hover {
+			background-color: $black;
+			color: $white;
+		}
 	}
 	
 	&--white {
@@ -647,18 +809,121 @@ a {
 	}
 }
 
+.form-group {
+	position: relative;
+	
+	@include responsive(device) {
+		margin-bottom: 32px;
+	}
+	
+	@include responsive(desktop) {
+		margin-bottom: 40px;
+	}
+	
+	input {
+		&.error {
+			border-color: $error;
+		}
+	}
+
+	label {
+		font-size: 14px;
+		line-height: 1;
+		position: absolute;
+		display: block;
+		margin-top: 4px;
+
+		&.error {
+			color: $error;
+		}
+	}
+}
+
+.inp-text {
+	border: 2px solid $black;
+	width: 100%;
+	display: block;
+	box-sizing: border-box;
+	border-radius: 0;
+	
+	&::-webkit-outer-spin-button,
+	&::-webkit-inner-spin-button{
+		-webkit-appearance: none;
+	}
+
+	@include responsive(device) {
+		padding: 0 10px;
+		height: 48px;
+	}
+
+	@include responsive(desktop) {
+		padding: 0 20px;
+		height: 60px;
+	}
+
+	&:focus,
+	&:active {
+		border-radius: 0;
+		outline: none;
+	}
+}
+
 .bg-black {
 	background-color: $black;
 }
 
 .webinars {
 	@include paddingBlock();
-	color: $white;
 	display: flex;
 	flex-flow: column;
+
+	&.bg-black {
+		color: $white;
+
+		.webinars__item {
+			a {
+				color: $white;
+			}
+
+			.btn {
+				color: $white;
+			}
+
+			&:hover {
+				border-color: $pink;
+
+				.btn {
+					border-color: $pink;
+					background-color: $pink;
+				}
+			}
+		}
+
+
+		.webinars__descr p {
+			color: $white;
+		}
+
+		.btn--outline {
+			border-color:  $white;
+		}
+	}
+
+	h2 {
+		padding: 0 20px;
+		
+		@include responsive(desktop) {
+			padding: 0 40px;
+		}
+	}
+
+	a {
+		color: $black;
+	}
 	
 	&__list {
 		display: flex;
+		flex-flow: wrap;
 		margin-bottom: 56px;
 		
 		@include responsive(mobile) {
@@ -668,27 +933,28 @@ a {
 	
 	&__item {
 		padding: 20px;
-		border: 10px solid $black;
 		box-sizing: border-box;
 		transition: $transition;
 		display: flex;
 		flex-flow: column;
-		
+		border: 10px solid transparent;
+
 		@include responsive(tablet) {
 			width: 50%;
 		}
 		
 		@include responsive(desktop) {
-			width: 50%;
-			margin: 0 20px;
+			width: calc(50% - 40px);
+			margin: 0 20px 20px;
 		}
-		
+
 		&:hover {
 			border-color: $pink;
-			
+
 			.btn {
 				border-color: $pink;
 				background-color: $pink;
+				color: $white;
 			}
 		}
 	}
@@ -699,27 +965,18 @@ a {
 		@include responsive(tabletdesktop) {
 			margin-bottom: 56px;
 		}
-
-		a {
-			color: $white
-		}
 	}
-	
+
 	&__price {
 		margin-top: auto;
 	}
 	
 	&__button {
 		margin-top: 32px;
-
-		.btn {
-			color: $white;
-			
-		}
 	}
-
-	.btn--outline {
-		border-color:  $white;
+	
+	.btn {
+		//color: $black;
 	}
 }
 
@@ -728,7 +985,118 @@ a {
 	color: $white;
 	display: flex;
 	flex-flow: column;
+
+	@include responsive(device) {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
 	
+	@include responsive(desktop) {
+		padding-right: 40px;
+		padding-left: 40px;
+	}
+
+	&--course {
+		@include responsive(largedesktop) {
+			padding-right: 16%;
+			padding-left: 16%;
+		}
+
+		.experts__list {
+			flex-flow: column;
+			margin-bottom: 0;
+		}
+		
+		.experts__item {
+			width: 100%;
+			flex-flow: wrap;
+			padding: 0 0 64px;
+			margin-bottom: 56px;
+			position: relative;
+			
+			&:after {
+				content: '';
+				position: absolute;
+				height: 2px;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background-color: $white;
+			}
+			
+			&:last-child {
+				padding-bottom: 0;
+				margin-bottom: 0;
+
+				&:after {
+					content: none;
+				}
+			}
+			
+			&:nth-child(even) {
+				.experts__content {
+					@include responsive(desktop) {
+						flex-flow: row-reverse;
+					}
+				}
+				
+				.experts__img {
+					@include responsive(desktop) {
+						margin: 0 0 0 20px;
+					}
+				}
+			}
+		}
+		
+		.experts__content {
+			@include responsive(mobile) {
+				flex-flow: column;
+			}
+		}
+
+		.experts__img {
+			@include responsive(tablet) {
+				margin-right: 20px;
+			}
+
+			@include responsive(desktop) {
+				margin-bottom: 0;
+			}
+		}
+
+		.experts__descr {
+			@include responsive(desktop) {
+				margin-bottom: .5rem;
+				column-count: 2;
+			}
+			
+			p {
+				font-size: 18px;
+			}
+		}
+		
+		h4 {
+			@include responsive(largedesktop) {
+				font-size: 40px;
+			}
+		}
+	}
+	
+	&--webinar {
+		@include responsive(largedesktop) {
+			padding-right: calc(16% + 40px);
+			padding-left: calc(16% + 40px);
+		}
+
+		.experts__item {
+			width: 100%;
+		}
+		
+		.experts__content {
+			flex-flow: wrap;
+		}
+	}
+
 	&__list {
 		display: flex;
 		margin-bottom: 56px;
@@ -740,7 +1108,6 @@ a {
 	
 	&__item {
 		display: flex;
-		padding: 0 20px;
 		flex-flow: wrap;
 
 		@include responsive(device) {
@@ -749,7 +1116,6 @@ a {
 		}
 		
 		@include responsive(landscapedesktop) {
-			padding: 0 40px;
 			width: 50%;
 		}
 		
@@ -760,6 +1126,13 @@ a {
 		&:last-child {
 			margin-bottom: 0;
 		}
+		
+		&:nth-child(odd) {
+			.experts__descr {
+				padding-right: 20px;
+			}
+		}
+		
 	}
 	
 	&__img {
@@ -771,9 +1144,419 @@ a {
 		overflow: hidden;
 		background: linear-gradient(224.97deg, #D745E3 15.29%, #5581F3 84.12%);
 		margin-bottom: 20px;
-		
+
 		@include responsive(landscapedesktop) {
 			margin-right: 20px;
+		}
+	}
+
+	&__content {
+		display: flex;
+	}
+	
+	&__name {
+		margin-bottom: 20px;
+		
+		h4 {
+			margin-bottom: 0;
+		}
+		
+		p {
+			line-height: 1.4;
+			max-width: 400px;
+			opacity: .8;
+			
+			@include responsive(device) {
+				font-size: 14px;
+			}
+			
+			@include responsive(desktop) {
+				font-size: 16px;
+			}
+		}
+	}
+	
+	&__descr {
+		p {
+			margin-bottom: 1rem;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+.about-course {
+	@include paddingBlock();
+	
+	@include responsive(device) {
+		padding-right: 20px;
+		padding-left: 20px;
+	}
+
+	@include responsive(desktop) {
+		padding-right: 40px;
+		padding-left: 40px;
+	}
+
+	@include responsive(largedesktop) {
+		margin: 0 16%;
+	}
+	
+	&__content {
+		max-width: 800px;
+		position: relative;
+
+		@include responsive(device) {
+			padding-left: 20px;
+		}
+
+		@include responsive(desktop) {
+			padding-left: 24px;
+		}
+		
+		&:before {
+			content: '';
+			position: absolute;
+			left: 0;
+			height: 100%;
+			background-color: $black;
+			
+			@include responsive(device) {
+				width: 2px;
+			}
+			
+			@include responsive(desktop) {
+				width: 4px;
+			}
+		}
+	}
+}
+
+.you-learn {
+	@include paddingBlock();
+	
+	@include responsive(device) {
+		padding-right: 20px;
+		padding-left: 20px;
+	}
+
+	@include responsive(desktop) {
+		padding-left: 16%;
+		padding-right: 16%;
+	}
+
+	@include responsive(largedesktop) {
+		padding-left: 32%;
+		padding-right: 16%;
+	}
+	
+	&__list {
+		counter-reset: section;
+	}
+
+	&__item {
+		position: relative;
+		
+		@include responsive(device) {
+			padding: 24px 0 24px 40px;
+		}
+
+		@include responsive(desktop) {
+			padding: 32px 0 32px 64px;
+		}
+
+		@include responsive(largedesktop) {
+			padding: 48px 0 48px 80px;
+		}
+		
+		&:before {
+			content: counter(section);
+			counter-increment: section;
+			position: absolute;
+			font-weight: 500;
+			line-height: 1.5;
+			left: 0;
+			top: 0;
+
+			@include responsive(device) {
+				font-size: 48px;
+			}
+
+			@include responsive(desktop) {
+				font-size: 64px;
+			}
+
+			@include responsive(largedesktop) {
+				font-size: 80px;
+			}
+		}
+		
+		&:after {
+			content: '';
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			height: 2px;
+			background-color: $black;
+		}
+		
+		p {
+			
+			@include responsive(desktop) {
+				font-size: 24px;
+			}
+		}
+	}
+}
+
+.course-program {
+	@include paddingBlock();
+
+	@include responsive(device) {
+		padding-right: 20px;
+		padding-left: 20px;
+	}
+	
+	@include responsive(desktop) {
+		padding-right: 40px;
+		padding-left: 40px;
+	}
+
+	@include responsive(largedesktop) {
+		margin: 0 16%;
+	}
+	
+	&__list {
+		ul {
+			padding: 0 0 0 24px;
+			margin: 0;
+		}
+		
+		li {
+			margin-bottom: 1rem;
+		}
+	}
+	
+	&__item {
+		display: flex;
+		transition: $transition;
+
+		@include responsive(device) {
+			flex-flow: wrap;
+			padding: 1.75rem 1.25rem;
+			margin-left: -1.25rem;
+			margin-right: -1.25rem;
+		}
+
+		@include responsive(desktop) {
+			padding: 1.75rem 1rem;
+			margin-left: -1rem;
+			margin-right: -1rem;
+		}
+		
+		&:nth-child(even) {
+			@include responsive(device) {
+				background-color: rgba($gray-400, .08);
+			}
+			@include responsive(tablet) {
+				background-color: rgba($gray-400, .08);
+			}
+		}
+		
+		&:first-child {
+			@include responsive(device) {
+				padding-top: 0;
+			}
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		&:hover {
+			background-color: rgba($gray-400, .08);
+		}
+	}
+	
+	&__number {
+		@include responsive(device) {
+			width: 50%;
+		}
+
+		@include responsive(desktop) {
+			width: 25%;
+		}
+
+		p {
+			font-weight: 500;
+			font-size: 16px;
+		}
+	}
+	
+	&__time {
+		@include responsive(device) {
+			width: 50%;
+		}
+
+		@include responsive(desktop) {
+			width: 25%;
+		}
+
+		p {
+			font-weight: 500;
+			font-size: 16px;
+			
+			span {
+				display: block;
+			}
+		}
+	}
+	
+	&__descr {
+		@include responsive(device) {
+			width: 100%;
+			margin-top: 1rem;
+		}
+		
+		@include responsive(desktop) {
+			width: 50%;
+		}
+
+		h5 {
+			font-size: 28px;
+			margin-bottom: .5rem;
+			line-height: 125%;
+		}
+	}
+}
+
+.course-registration {
+	@include paddingBlock();
+	display: flex;
+	flex-flow: wrap;
+
+	@include responsive(device) {
+		padding-right: 20px;
+		padding-left: 20px;
+	}
+
+	@include responsive(desktop) {
+		padding-right: 40px;
+		padding-left: 40px;
+	}
+
+	@include responsive(largedesktop) {
+		margin-right: 16%;
+		margin-left: 16%;
+	}
+	
+	h3 {
+		width: 100%;
+	}
+	
+	&__form {
+		@include responsive(mobile) {
+			width: 100%;
+			margin-bottom: 2rem;
+		}
+
+		@include responsive(tabletdesktop) {
+			width: 50%;
+			padding-right: 10px;
+			box-sizing: border-box;
+		}
+		
+		.btn {
+			line-height: 1;
+			width: 100%;
+			cursor: pointer;
+			background-color: $white;
+			
+			&:hover {
+				background-color: $black;
+				border-color: $black;
+			}
+
+			@include responsive(device) {
+				font-size: 18px;
+				padding: 13px 40px;
+				margin-bottom: .25rem;
+			}
+
+			@include responsive(desktop) {
+				font-size: 20px;
+				padding: 16px 40px;
+				margin-bottom: .5rem;
+			}
+		}
+
+		.agreement {
+			font-size: 14px;
+			display: block;
+			line-height: 1.5;
+			color: $gray-400;
+		}
+	}
+	
+	&__info {
+		@include responsive(mobile) {
+			width: 100%;
+		}
+		
+		@include responsive(tabletdesktop) {
+			width: 50%;
+			padding-left: 10px;
+			box-sizing: border-box;
+		}
+		
+		.type {
+			text-transform: uppercase;
+			margin-bottom: 1rem;
+		}
+		
+		h4 {
+			line-height: 1.25;
+		}
+	}
+	
+	&__info-list {
+		display: flex;
+		flex-flow: wrap;
+	}
+	
+	&__info-item {
+		@include responsive(device) {
+			width: 100%;
+			margin-bottom: 1rem;
+		}
+
+		@include responsive(desktop) {
+			width: 50%;
+			margin-bottom: 40px;
+			padding-right: 20px;
+			box-sizing: border-box;
+		}
+		
+		&:nth-child(even) {
+			padding-right: 0;
+		}
+		
+		&:last-child {
+			margin-bottom: 0;
+		}
+		
+		p {
+			text-transform: uppercase;
+			letter-spacing: .25px;
+			line-height: 1.25;
+			
+			&.price {
+				font-weight: 600;
+				font-size: 20px;
+			}
 		}
 	}
 }

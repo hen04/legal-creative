@@ -1,0 +1,104 @@
+extends templates/layout
+include templates/_mixin-menu
+
+block content
+	header.header(style="background-color: #000;")
+		.header__top
+			.header__logo
+				a(href="/")
+					img(src="images/logo.svg" alt="legal&creative")
+			.mobile-menu.js-mobile-menu
+			nav.header__menu
+				-var current = "course-item.html"
+				+menu(current)
+		.header__title
+			h1
+				span.title Content the King.
+				span.title(style="color: #FF28C3;") Правила создания
+				span.title и успешного
+				span.title использования РИД
+		.header__bottom
+			.header-bottom
+				.header-bottom__item
+					i.iconify(data-icon="akar-icons:arrow-down-right" style="color: #FF28C3")
+					p 18 марта четверг
+				.header-bottom__item
+					i.iconify(data-icon="akar-icons:arrow-down-right" style="color: #FF28C3")
+					p 18:00—19:00 (МСК)
+				.header-bottom__item
+					i.iconify(data-icon="akar-icons:arrow-down-right" style="color: #FF28C3")
+					p 690 рублей
+				.header-bottom__item
+					i.iconify(data-icon="akar-icons:arrow-down-right" style="color: #FF28C3")
+					p Трансляция, запись и сертификат в течение 2 рабочих дней
+
+	main
+		.about-course
+			h3 О чем этот вебинар
+			.about-course__content
+				p Все, что нас развлекает и&nbsp;обучает&nbsp;&mdash; это контент. Человечество в&nbsp;огромном количестве потребляет фильмы, сериалы, музыку, фотографии и&nbsp;другие результаты творчества. С&nbsp;развитием технологий все больше людей включается в&nbsp;процесс создания контента, диверсифицируются и&nbsp;усложняются его виды и&nbsp;способы его использования. Закон не&nbsp;успевает за&nbsp;практикой. Понимание основных правил создания контента, установленных законом, и&nbsp;практических подходов&nbsp;&mdash; залог его беспрепятственного использования и&nbsp;успешной монетизации.
+
+		.you-learn(style="background-color: #FC9F8D;")
+			h3 На курсе вы научитесь
+			.you-learn__list
+				.you-learn__item
+					p Что такое РИД и как он охраняется
+				.you-learn__item
+					p Что нужно учитывать при оформлении договоров с авторами и производителями РИД
+				.you-learn__item
+					p Личные права, как их урегулировать
+				.you-learn__item
+					p Создание производных произведений и включение в РИД объектов авторского права третьих лиц
+				.you-learn__item
+					p Лицензионные договоры
+		.course-program
+			h3 Для кого этот вебинар
+			.course-program__list
+				ul
+					li Юристы, практикующие и консультирующие в сфере авторского права
+					li Студенты и магистры юридических вузов
+					li Продюсеры и заказчики контента (фильмов, музыки, произведений литературы и искусства)
+
+		.experts.experts--webinar(style="background-color: #000")
+			h3 Эксперт
+			each item in experts.slice(0,1)
+				.experts__item
+					.experts__img
+						img(src= item.img alt= item.name)
+					.experts__content
+						.experts__name
+							h4= item.name
+							p= item.subtitle
+						.experts__descr
+							each subitem in item.descr
+								p= subitem.item
+
+		.course-registration
+			h3 Зарегистрироваться
+			.course-registration__form
+				form(action="#" id="course-registration" method="post")
+					div.form-group
+						input(type="text" name="name" placeholder="Имя Фамилия" class="inp-text" required)
+					div.form-group
+						input(type="email" name="email" placeholder="Email" class="inp-text" required)
+					div.form-group
+						input(type="number" name="tel" placeholder="+7 (999) 999-99-99" class="inp-text" required)
+					button(type="submit" class="btn btn--outline") Зарегистрироваться
+					span.agreement Нажимая кнопку &laquo;Зарегистрироваться&raquo;, вы&nbsp;соглашаетесь с&nbsp;условиями договора-оферты и&nbsp;политикой конфиденциальности
+			.course-registration__info
+				each item in course.slice(8,9)
+					.type= item.type
+					h4= item.name
+					.course-registration__info-list
+						each subitem in item.details
+							.course-registration__info-item
+								p= subitem.days
+							.course-registration__info-item
+								p= subitem.time
+							.course-registration__info-item
+								p.price= subitem.price
+
+
+
+
+

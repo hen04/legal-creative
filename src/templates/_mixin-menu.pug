@@ -1,0 +1,8 @@
+mixin menu(current)
+	ul
+		each item in menu
+			li
+				if item.url === current
+					a(href= item.url class="current")= item.title
+				else
+					a(href= item.url)= item.title
