@@ -2,7 +2,7 @@ extends templates/layout
 include templates/_mixin-menu
 
 block content
-	header.header(style="background-color: #5780D9;")
+	header.header
 		.header__top
 			.header__logo
 				a(href="/")
@@ -14,23 +14,23 @@ block content
 		.header__title
 			h1
 				span.title Защита
-				span.title(style="color: #FC9F8D;") прав и интересов
+				span.title(style="color: #FF28C3;") прав и интересов
 				span.title актеров
 		.header__bottom
 			.header-bottom
 				.header-bottom__item
-					i.iconify(data-icon="akar-icons:arrow-down-right" style="color: #FC9F8D")
+					i.iconify(data-icon="akar-icons:arrow-down-right" style="color: #FF28C3")
 					p 4 лекции +
 						span ответы на вопросы слушателей
 				.header-bottom__item
-					i.iconify(data-icon="akar-icons:arrow-down-right" style="color: #FC9F8D")
+					i.iconify(data-icon="akar-icons:arrow-down-right" style="color: #FF28C3")
 					p вторник, четверг
 						span 19 часов (60-80 минут)
 				.header-bottom__item
-					i.iconify(data-icon="akar-icons:arrow-down-right" style="color: #FC9F8D")
+					i.iconify(data-icon="akar-icons:arrow-down-right" style="color: #FF28C3")
 					p 7 500 рублей
 				.header-bottom__item
-					i.iconify(data-icon="akar-icons:arrow-down-right" style="color: #FC9F8D")
+					i.iconify(data-icon="akar-icons:arrow-down-right" style="color: #FF28C3")
 					p Занятия проходят в&nbsp;формате живых вебинаров
 
 	main
@@ -109,8 +109,3 @@ block content
 								p= subitem.time
 							.course-registration__info-item
 								p.price= subitem.price
-
-
-
-
-

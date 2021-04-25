@@ -1499,7 +1499,7 @@ a {
   .course-registration__form .agreement {
     font-size: 14px;
     display: block;
-    line-height: 1.5;
+    line-height: 1.25;
     color: #B8B8B8; }
   @media only screen and (max-width: 767px) {
     .course-registration__info {
