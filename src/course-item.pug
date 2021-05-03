@@ -75,7 +75,7 @@ block content
 			.experts__list
 				each item in experts
 					.experts__item
-						.exerts__name
+						.experts__name
 							h4= item.name
 						.experts__content
 							.experts__img
@@ -87,14 +87,14 @@ block content
 		.course-registration
 			h3 Зарегистрироваться
 			.course-registration__form
-				form(action="#" id="course-registration" method="post")
+				form(id="course-registration" class="js-legal-form")
 					div.form-group
 						input(type="text" name="name" placeholder="Имя Фамилия" class="inp-text" required)
 					div.form-group
 						input(type="email" name="email" placeholder="Email" class="inp-text" required)
 					div.form-group
-						input(type="number" name="tel" placeholder="+7 (999) 999-99-99" class="inp-text" required)
-					button(type="submit" class="btn btn--outline") Зарегистрироваться
+						input(type="text" name="tel" placeholder="Номер телефона" class="inp-text js-phone" required)
+					button(type="submit" class="btn btn--black") Зарегистрироваться
 					span.agreement Нажимая кнопку &laquo;Зарегистрироваться&raquo;, вы&nbsp;соглашаетесь с&nbsp;условиями договора-оферты и&nbsp;политикой конфиденциальности
 			.course-registration__info
 				each item in course.slice(1,2)

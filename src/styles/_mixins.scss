@@ -49,3 +49,172 @@ $largedesktop: 1440px;
 		padding: 120px 0 140px;
 	}
 }
+
+@mixin experts($color) {
+	color: $color;
+
+	@include responsive(largedesktop) {
+		padding-right: 16%;
+		padding-left: 16%;
+	}
+	
+	.experts__list {
+		flex-flow: column;
+		margin-bottom: 0;
+	}
+	
+	.experts__name {
+		margin-bottom: 1rem;
+
+		h4 {
+			margin-bottom: 0;
+		}
+	}
+	
+	.experts__item {
+		width: 100%;
+		flex-flow: wrap;
+		position: relative;
+		
+		@include responsive(device) {
+			padding: 0 0 40px;
+			margin-bottom: 40px;
+		}
+		
+		@include responsive(desktop) {
+			padding: 0 0 64px;
+			margin-bottom: 56px;
+		}
+		
+		&:after {
+			content: '';
+			position: absolute;
+			height: 2px;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: $white;
+		}
+		
+		&:last-child {
+			padding-bottom: 0;
+			margin-bottom: 0;
+			
+			&:after {
+				content: none;
+			}
+		}
+		
+		&:nth-child(even) {
+			.experts__content {
+				@include responsive(desktop) {
+					flex-flow: row-reverse;
+				}
+			}
+			
+			.experts__img {
+				@include responsive(desktop) {
+					margin: 0 0 0 20px;
+				}
+			}
+		}
+	}
+	
+	.experts__content {
+		@include responsive(mobile) {
+			flex-flow: column;
+		}
+	}
+	
+	.experts__img {
+		@include responsive(tablet) {
+			margin-right: 20px;
+		}
+		
+		@include responsive(desktop) {
+			margin-bottom: 0;
+		}
+	}
+	
+	.experts__descr {
+		@include responsive(desktop) {
+			margin-bottom: .5rem;
+			column-count: 2;
+		}
+		
+		p {
+			font-size: 18px;
+		}
+	}
+	
+	h4 {
+		@include responsive(largedesktop) {
+			font-size: 40px;
+		}
+	}
+}
+
+@mixin form() {
+	@include paddingBlock();
+	display: flex;
+	flex-flow: wrap;
+	
+	@include responsive(device) {
+		padding-right: 20px;
+		padding-left: 20px;
+	}
+	
+	@include responsive(desktop) {
+		padding-right: 40px;
+		padding-left: 40px;
+	}
+	
+	@include responsive(largedesktop) {
+		margin-right: 16%;
+		margin-left: 16%;
+	}
+	
+	h3 {
+		width: 100%;
+		margin-bottom: 0;
+	}
+	
+	&__form {
+		margin-top: 48px;
+		@include responsive(mobile) {
+			width: 100%;
+			margin-bottom: 2rem;
+		}
+		
+		@include responsive(tabletdesktop) {
+			width: 50%;
+			padding-right: 10px;
+			box-sizing: border-box;
+		}
+		
+		.btn {
+			line-height: 1;
+			width: 100%;
+			cursor: pointer;
+			
+			@include responsive(device) {
+				font-size: 18px;
+				padding: 13px 40px;
+				margin-bottom: .25rem;
+			}
+			
+			@include responsive(desktop) {
+				font-size: 20px;
+				padding: 16px 40px;
+				margin-bottom: .5rem;
+			}
+		}
+		
+		.agreement {
+			font-size: 14px;
+			display: block;
+			line-height: 1.25;
+			color: $gray-400;
+		}
+	}
+}

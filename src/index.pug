@@ -1,27 +1,7 @@
 extends templates/layout
-include templates/_mixin-menu
 
 block content
-	header.header
-		.header__top
-			.header__logo
-				a(href="/")
-					img(src="images/logo.svg" alt="legal&creative")
-			.mobile-menu.js-mobile-menu
-			nav.header__menu
-				-var current = "index.html"
-				+menu(current)
-		.header__title
-			h1
-				span.legal юридическая
-				span.platform платформа
-					span.small для
-				span.creative креативной
-				span.industry индустрии
-			.subtitle основы для защиты прав и интересов
-		.header__bottom
-			.header-target
-				p Художники, продюсеры, дизайнеры, режиссеры, маркетологи, писатели, блогеры, юристы, архитекторы, веб-дизайнеры, иллюстраторы, дизайнеры интерьеров
+	include templates/incl-header-through
 
 	main
 		.courses
@@ -84,7 +64,7 @@ block content
 						.experts__descr
 							h4= item.name
 							p
-								span= item.description.slice(0,320) + "..."
+								span= item.description.slice(0,300) + "..."
 			a(href="experts.html" class="btn btn--white") Все эксперты
 
 

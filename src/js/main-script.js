@@ -14,10 +14,14 @@ $(function () {
 		$('body').toggleClass('menu-opened');
 	});
 
-	$("#course-registration").validate({
+	jQuery.validator.addMethod("checkMask", function(value, element) {
+		return /\+\d{1}\(\d{3}\)\d{3}–\d{2}–\d{2}/g.test(value);
+	});
+
+	$(".js-legal-form").validate({
 		rules: {
 			tel: {
-				number: true
+				checkMask: true
 			}
 		},
 		messages: {
@@ -30,10 +34,15 @@ $(function () {
 			},
 			tel: {
 				required: "Это поле обязательно для заполнения",
-				number: "Номер должен быть формата +7 (999) 999-99-99"
+				checkMask: "Введите полный номер телефона"
+			},
+			message: {
+				required: "Это поле обязательно для заполнения",
 			}
 		}
 	})
+	$('.js-phone').mask("+7(999)999–99–99", {autoclear: false});
+
 
 });
 
