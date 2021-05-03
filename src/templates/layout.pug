@@ -16,11 +16,15 @@ html(lang="ru")
 		div(class="container" data-scroll-container)
 			block content
 			footer.footer
-				nav.footer__menu
-					ul
-						each item in menu
-							li
-								a(href= item.url)= item.title
+				.footer__top
+					.footer__logo
+						a(href="/")
+							img(src="images/logo.svg" alt="legal&creative")
+					nav.footer__menu
+						ul
+							each item in menu
+								li
+									a(href= item.url)= item.title
 				.footer__bottom
 					.footer__contacts
 						.footer__mail
@@ -39,5 +43,6 @@ html(lang="ru")
 		script(src="js/locomotive-scroll.min.js")
 		script(src="js/viewportchecker.js")
 		script(src="https://code.iconify.design/1/1.0.7/iconify.min.js")
-		script(src="js/jquery.validate.min.js")
+		script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js")
+		script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js")
 		script(src="js/main-script.js")

@@ -1,0 +1,36 @@
+extends templates/layout
+
+block content
+	include templates/incl-header-through
+
+	main
+		.contacts
+			.contacts__header
+				h3 Контакты
+				p Если у&nbsp;вас остались вопросы, свяжитесь с&nbsp;авторами курса через форму ниже или напишите в&nbsp;мессенджеры:
+			.contacts__form
+				form(id="contacts" class="js-legal-form")
+					div.form-group
+						input(type="text" name="name" placeholder="Имя Фамилия" class="inp-text" required)
+					div.form-group
+						input(type="email" name="email" placeholder="Email" class="inp-text" required)
+					div.form-group
+						input(type="text" name="tel" placeholder="Номер телефона" class="inp-text js-phone" required)
+					div.form-group
+						textarea(rows="10" name="message" class="inp-text" placeholder="Сообщение" required)
+					button(type="submit" class="btn btn--black") Отправить сообщение
+					span.agreement Нажимая кнопку &laquo;Отправить сообщение&raquo;, вы&nbsp;соглашаетесь с&nbsp;условиями договора-оферты и&nbsp;политикой конфиденциальности
+			.contacts__info
+				.messengers
+					.messengers__item
+						a(href="")
+							i.iconify(data-icon="akar-icons:facebook-fill" data-inline="false")
+							span facebook
+					.messengers__item
+						a(href="")
+							i.iconify(data-icon="akar-icons:instagram-fill" data-inline="false")
+							span instagram
+					.messengers__item
+						a(href="")
+							i.iconify(data-icon="akar-icons:telegram-fill" data-inline="false")
+							span telegram
