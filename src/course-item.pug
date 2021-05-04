@@ -94,8 +94,9 @@ block content
 						input(type="email" name="email" placeholder="Email" class="inp-text" required)
 					div.form-group
 						input(type="text" name="tel" placeholder="Номер телефона" class="inp-text js-phone" required)
-					button(type="submit" class="btn btn--black") Зарегистрироваться
 					span.agreement Нажимая кнопку &laquo;Зарегистрироваться&raquo;, вы&nbsp;соглашаетесь с&nbsp;условиями договора-оферты и&nbsp;политикой конфиденциальности
+					button(type="submit" class="btn btn--black") Зарегистрироваться
+
 			.course-registration__info
 				each item in course.slice(1,2)
 					.type= item.type

@@ -1,6 +1,7 @@
 extends templates/layout
 
 block content
+	-var current = "contacts.html"
 	include templates/incl-header-through
 
 	main
@@ -18,8 +19,11 @@ block content
 						input(type="text" name="tel" placeholder="Номер телефона" class="inp-text js-phone" required)
 					div.form-group
 						textarea(rows="10" name="message" class="inp-text" placeholder="Сообщение" required)
-					button(type="submit" class="btn btn--black") Отправить сообщение
 					span.agreement Нажимая кнопку &laquo;Отправить сообщение&raquo;, вы&nbsp;соглашаетесь с&nbsp;условиями договора-оферты и&nbsp;политикой конфиденциальности
+					button(type="submit" class="btn btn--black") Отправить сообщение
+
+					.contacts__result.hidden
+						p Ваше сообщение отправлено, модератор свяжется с вами в ближайшее время и поможет с решением вашего вопроса.
 			.contacts__info
 				.messengers
 					.messengers__item
