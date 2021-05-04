@@ -39,6 +39,9 @@ $(function () {
 			message: {
 				required: "Это поле обязательно для заполнения",
 			}
+		},
+		submitHandler: function() {
+			$('.contacts__result').removeClass('hidden');
 		}
 	})
 	$('.js-phone').mask("+7(999)999–99–99", {autoclear: false});

@@ -1,6 +1,8 @@
 extends templates/layout
+include templates/_mixin-menu
 
 block content
+	-var current = "index.html"
 	include templates/incl-header-through
 
 	main
@@ -8,7 +10,7 @@ block content
 			h2 Курсы
 			.courses__list
 				each item, i in course.slice(0,4)
-					.courses__item(data-scroll data-scroll-repeat data-scroll-delay= i*2)
+					.courses__item
 						.courses__type= item.type
 						.courses__descr
 							h4

@@ -196,7 +196,8 @@ a {
 		
 		a {
 			&.current {
-				opacity: .5;
+				color: $green;
+				font-weight: 500;
 			}
 		}
 		
@@ -865,6 +866,13 @@ a {
 	}
 }
 
+@keyframes autofill {
+	to {
+		color: inherit;
+		background: transparent;
+	}
+}
+
 .form-group {
 	position: relative;
 	
@@ -884,6 +892,10 @@ a {
 			&:focus {
 				box-shadow: 0 0 4px rgba($error, .5);
 			}
+		}
+
+		&:-webkit-autofill {
+			-webkit-box-shadow: inset 0 0 0 50px $white !important;
 		}
 	}
 
@@ -1563,13 +1575,17 @@ a {
 	}
 	
 	&__info {
-		
 		@include responsive(desktop) {
 			margin-top: 48px;
 			width: 25%;
 			display: flex;
 			justify-content: flex-end;
 		}
+	}
+	
+	&__result {
+		margin-top: 20px;
+		transition: $transition;
 	}
 }
 
@@ -1622,4 +1638,9 @@ a {
 			}
 		}
 	}
+}
+
+.hidden {
+	visibility: hidden;
+	opacity: 0;
 }

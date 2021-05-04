@@ -9,7 +9,6 @@ block content
 					img(src="images/logo.svg" alt="legal&creative")
 			.mobile-menu.js-mobile-menu
 			nav.header__menu
-				-var current = "course-item.html"
 				+menu(current)
 		.header__title
 			h1
@@ -83,8 +82,9 @@ block content
 						input(type="email" name="email" placeholder="Email" class="inp-text" required)
 					div.form-group
 						input(type="text" name="tel" placeholder="Номер телефона" class="inp-text js-phone" required)
-					button(type="submit" class="btn btn--black") Зарегистрироваться
 					span.agreement Нажимая кнопку &laquo;Зарегистрироваться&raquo;, вы&nbsp;соглашаетесь с&nbsp;условиями договора-оферты и&nbsp;политикой конфиденциальности
+					button(type="submit" class="btn btn--black") Зарегистрироваться
+
 			.course-registration__info
 				each item in course.slice(8,9)
 					.type= item.type
