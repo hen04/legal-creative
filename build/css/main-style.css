@@ -1309,6 +1309,12 @@ a {
     @media only screen and (min-width: 1440px) {
       .experts--course h4 {
         font-size: 40px; } }
+    @media only screen and (max-width: 767px) {
+      .experts--course .experts__info {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+        flex-flow: column; } }
   @media only screen and (min-width: 1440px) {
     .experts--webinar {
       padding-right: calc(16% + 40px);
