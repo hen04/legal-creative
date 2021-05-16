@@ -1,0 +1,32 @@
+extends templates/layout
+include templates/_mixin-menu
+
+
+block content
+	-var current = "networking.html"
+	include templates/incl-header-through
+
+	main
+		.courses
+			h2 Нетворкинг
+			.courses__list
+				each item in course.slice(6,8)
+					.courses__item.courses__item--networking
+						.courses__content(data-scroll)
+							.courses__type= item.type
+							.courses__descr
+								h4
+									a(href="networking-item.html")= item.name
+								p= item.descr
+							.courses__price
+								p.date= item.date
+									|#{' '}
+									span=  item.time
+								p.price= item.price
+								p.place
+									each subitem in item.details
+										span= subitem.city
+										span= subitem.place
+										span= subitem.street
+							a(href="networking-item.html").courses__link
+

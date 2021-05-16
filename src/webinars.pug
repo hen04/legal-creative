@@ -10,12 +10,14 @@ block content
 			.webinars__list
 				each item in course
 					.webinars__item
-						.webinars__descr
-							h4
-								a(href="")= item.name
-							p= item.descr
-						.webinars__price
-							p.date= item.date
-							p.price= item.price
-						.webinars__button
-							a(href="webinar-item.html" class="btn btn--sm btn--outline") Подробнее
+						.webinars__content(data-scroll)
+							.webinars__descr
+								h4
+									a(href="webinar-item.html")= item.name
+								p= item.descr
+							.webinars__bottom
+								.webinars__price
+									p.date= item.date
+									p.price= item.price
+								.webinars__button
+									a(href="webinar-item.html" class="btn btn--sm btn--outline") Подробнее

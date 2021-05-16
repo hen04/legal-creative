@@ -5,7 +5,6 @@ const scroller = new LocomotiveScroll({
 	smooth: true
 })
 
-
 $(function () {
 
 	$('.js-mobile-menu').on('click', function () {
@@ -44,6 +43,7 @@ $(function () {
 			$('.contacts__result').removeClass('hidden');
 		}
 	})
+
 	$('.js-phone').mask("+7(999)999–99–99", {autoclear: false});
 
 

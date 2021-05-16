@@ -19,18 +19,18 @@ block content
 		.header__bottom
 			.header-bottom
 				.header-bottom__item
-					i.iconify(data-icon="akar-icons:arrow-down-right" style="color: #FF28C3")
+					i.iconify(data-icon="akar-icons:arrow-down-right")
 					p 4 лекции +
 						span ответы на вопросы слушателей
 				.header-bottom__item
-					i.iconify(data-icon="akar-icons:arrow-down-right" style="color: #FF28C3")
+					i.iconify(data-icon="akar-icons:arrow-down-right")
 					p вторник, четверг
 						span 19 часов (60-80 минут)
 				.header-bottom__item
-					i.iconify(data-icon="akar-icons:arrow-down-right" style="color: #FF28C3")
+					i.iconify(data-icon="akar-icons:arrow-down-right")
 					p 7 500 рублей
 				.header-bottom__item
-					i.iconify(data-icon="akar-icons:arrow-down-right" style="color: #FF28C3")
+					i.iconify(data-icon="akar-icons:arrow-down-right")
 					p Занятия проходят в&nbsp;формате живых вебинаров
 
 	main
@@ -39,7 +39,7 @@ block content
 			.about-course__content
 				p Курс для актеров от&nbsp;опытных юристов в&nbsp;сфере кино и&nbsp;телевидения. Позволит научиться правильно выстраивать отношения с&nbsp;продюсером и&nbsp;агентом, читать свой контракт и&nbsp;выделять в&nbsp;нем главное, а&nbsp;также знать и&nbsp;защищать свои права, пользуясь положениями закона. Участникам будут предложены конкретные сценарии поведения в&nbsp;сложных ситуациях (переработка, работа в&nbsp;опасных условиях и&nbsp;т.д.) и&nbsp;реальные алгоритмы защиты своих прав, составленные на&nbsp;основе практики.
 
-		.you-learn(style="background-color: #FC9F8D;")
+		.you-learn.bg-black
 			h3 На курсе вы научитесь
 			.you-learn__list
 				.you-learn__item
@@ -70,43 +70,38 @@ block content
 								h5= subitem.title
 								p= subitem.descr
 
-		.experts.experts--course(style="background-color: #5780D9;")
+		.experts.experts--course.bg-black
 			h3 Эксперты
 			.experts__list
 				each item in experts
 					.experts__item
-						.experts__name
-							h4= item.name
-						.experts__content
-							.experts__img
-								img(src= item.img alt= item.name)
-							.experts__descr
-								each subitem in item.descr
-									p= subitem.item
+						.experts__content(data-scroll)
+							.experts__name
+								h4= item.name
+							.experts__info
+								.experts__img
+									img(src= item.img alt= item.name)
+								.experts__descr
+									each subitem in item.descr
+										p= subitem.item
 
 		.course-registration
-			h3 Зарегистрироваться
-			.course-registration__form
-				form(id="course-registration" class="js-legal-form")
-					div.form-group
-						input(type="text" name="name" placeholder="Имя Фамилия" class="inp-text" required)
-					div.form-group
-						input(type="email" name="email" placeholder="Email" class="inp-text" required)
-					div.form-group
-						input(type="text" name="tel" placeholder="Номер телефона" class="inp-text js-phone" required)
-					span.agreement Нажимая кнопку &laquo;Зарегистрироваться&raquo;, вы&nbsp;соглашаетесь с&nbsp;условиями договора-оферты и&nbsp;политикой конфиденциальности
-					button(type="submit" class="btn btn--black") Зарегистрироваться
+			div(data-scroll)
+				.course-registration__content
+					h3 Зарегистрироваться
+					.course-registration__form
+						include templates/incl-registration-form
 
-			.course-registration__info
-				each item in course.slice(1,2)
-					.type= item.type
-					h4= item.name
-					.course-registration__info-list
-						each subitem in item.details
-							.course-registration__info-item
-								p= subitem.info
-							.course-registration__info-item
-								p= subitem.days
-								p= subitem.time
-							.course-registration__info-item
-								p.price= subitem.price
+					.course-registration__info
+						each item in course.slice(1,2)
+							.type= item.type
+							h4= item.name
+							.course-registration__info-list
+								each subitem in item.details
+									.course-registration__info-item
+										p= subitem.info
+									.course-registration__info-item
+										p= subitem.days
+										p= subitem.time
+									.course-registration__info-item
+										p.price= subitem.price
