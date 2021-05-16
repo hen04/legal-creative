@@ -12,13 +12,14 @@ block content
 			.courses__list
 				each item, i in course
 					.courses__item
-						.courses__type= item.type
-						.courses__descr
-							h4
-								a(href="")= item.name
-							p= item.descr
-						.courses__price
-							p.date= item.date
-							p.price= item.price
-						.courses__link
-							a(href="course-item.html")
+						.courses__content(data-scroll)
+							.courses__type= item.type
+							.courses__descr
+								h4
+									a(href="course-item.html")= item.name
+								p= item.descr
+							.courses__price
+								p.date= item.date
+								p.price= item.price
+							a(href="course-item.html").courses__link
+

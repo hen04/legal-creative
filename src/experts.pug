@@ -23,17 +23,15 @@ block content
 			.experts__list
 				each item in experts
 					.experts__item
-						.experts__header
-							.experts__name
-								h4= item.name
-							.experts__link
-								a(href="") Курсы эксперта
-								i.iconify(data-icon="akar-icons:arrow-right")
-						.experts__content
-							.experts__img
-								img(src= item.img alt= item.name)
-							.experts__descr
-								each subitem in item.descr
-									p= subitem.item
+						.experts__content(data-scroll)
+							.experts__header
+								.experts__name
+									h4= item.name
+							.experts__info
+								.experts__img
+									img(src= item.img alt= item.name)
+								.experts__descr
+									each subitem in item.descr
+										p= subitem.item
 
 

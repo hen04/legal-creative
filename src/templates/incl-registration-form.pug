@@ -1,0 +1,16 @@
+form(id="course-registration" class="js-legal-form")
+	div.form-group
+		input(type="text" name="name" placeholder="Имя Фамилия" class="inp-text" required)
+	div.form-group
+		.icon
+			i.iconify(data-icon="fluent:info-16-regular")
+			.tooltip
+				span Введите действующий почтовый адрес, на него придет ссылка на вебинар или курс.
+		input(type="email" name="email" placeholder="Email" class="inp-text" required)
+	div.form-group
+		input(type="text" name="tel" placeholder="Номер телефона" class="inp-text js-phone" required)
+	div.form-group
+		span.agreement Нажимая кнопку &laquo;Зарегистрироваться&raquo;, вы&nbsp;соглашаетесь с&nbsp;условиями договора-оферты и&nbsp;политикой конфиденциальности
+		input(type="checkbox" id="advertisment" class="inp-checkbox" checked)
+		label(for="advertisment") Выражаю свое согласие на получение рекламных материалов
+	button(type="submit" class="btn btn--black") Зарегистрироваться

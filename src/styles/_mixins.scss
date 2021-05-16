@@ -104,20 +104,6 @@ $largedesktop: 1440px;
 				content: none;
 			}
 		}
-		
-		&:nth-child(even) {
-			.experts__content {
-				@include responsive(desktop) {
-					flex-flow: row-reverse;
-				}
-			}
-			
-			.experts__img {
-				@include responsive(desktop) {
-					margin: 0 0 0 20px;
-				}
-			}
-		}
 	}
 	
 	.experts__content {
@@ -155,23 +141,25 @@ $largedesktop: 1440px;
 }
 
 @mixin form() {
-	@include paddingBlock();
-	display: flex;
-	flex-flow: wrap;
-	
-	@include responsive(device) {
-		padding-right: 20px;
-		padding-left: 20px;
-	}
-	
-	@include responsive(desktop) {
-		padding-right: 40px;
-		padding-left: 40px;
-	}
-	
-	@include responsive(largedesktop) {
-		margin-right: 16%;
-		margin-left: 16%;
+	&__content {
+		@include paddingBlock();
+		display: flex;
+		flex-flow: wrap;
+		
+		@include responsive(device) {
+			padding-right: 20px;
+			padding-left: 20px;
+		}
+		
+		@include responsive(desktop) {
+			padding-right: 40px;
+			padding-left: 40px;
+		}
+		
+		@include responsive(largedesktop) {
+			margin-right: 16%;
+			margin-left: 16%;
+		}
 	}
 	
 	h3 {
@@ -208,14 +196,6 @@ $largedesktop: 1440px;
 				padding: 16px 40px;
 				margin-bottom: .5rem;
 			}
-		}
-		
-		.agreement {
-			font-size: 14px;
-			display: block;
-			line-height: 1.25;
-			color: $gray-400;
-			margin: -1rem 0 1rem 0;
 		}
 	}
 }

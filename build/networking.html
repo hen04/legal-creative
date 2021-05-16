@@ -24,11 +24,11 @@
                     </li>
                     <li><a href="webinars.html">вебинары</a>
                     </li>
-                    <li><a href="networking.html">нетворкинг</a>
+                    <li><a class="current" href="networking.html">нетворкинг</a>
                     </li>
                     <li><a href="about.html">о проекте</a>
                     </li>
-                    <li><a class="current" href="contacts.html">контакты</a>
+                    <li><a href="contacts.html">контакты</a>
                     </li>
                   </ul>
           </nav>
@@ -44,43 +44,37 @@
         </div>
       </header>
       <main>
-        <div class="contacts">
-          <div data-scroll>
-            <div class="contacts__content">
-              <div class="contacts__header">
-                <h3>Контакты</h3>
-                <p>Если у&nbsp;вас остались вопросы, свяжитесь с&nbsp;авторами курса через форму ниже или напишите в&nbsp;мессенджеры.</p>
-                <p>Все поля обязательны для заполнения.</p>
-              </div>
-              <div class="contacts__form">
-                <form class="js-legal-form" id="contacts">
-                  <div class="form-group">
-                    <input class="inp-text" type="text" name="name" placeholder="Имя Фамилия" required>
-                  </div>
-                  <div class="form-group">
-                    <div class="icon"><i class="iconify" data-icon="fluent:info-16-regular"></i>
-                      <div class="tooltip"><span>Введите действующий почтовый адрес, на него придет ссылка на вебинар или курс.</span></div>
-                    </div>
-                    <input class="inp-text" type="email" name="email" placeholder="Email" required>
-                  </div>
-                  <div class="form-group">
-                    <input class="inp-text js-phone" type="text" name="tel" placeholder="Номер телефона" required>
-                  </div>
-                  <div class="form-group">
-                    <textarea class="inp-text" rows="10" name="message" placeholder="Сообщение" required></textarea>
-                  </div><span class="agreement">Нажимая кнопку &laquo;Отправить сообщение&raquo;, вы&nbsp;соглашаетесь с&nbsp;условиями договора-оферты и&nbsp;политикой конфиденциальности</span>
-                  <button class="btn btn--black" type="submit">Отправить сообщение</button>
-                  <div class="contacts__result hidden" style="display: none">
-                    <p>Ваше сообщение отправлено, модератор свяжется с вами в ближайшее время и поможет с решением вашего вопроса.</p>
-                  </div>
-                </form>
-              </div>
-              <div class="contacts__info">
-                <div class="messengers">
-                  <div class="messengers__item"><a href=""><i class="iconify" data-icon="akar-icons:facebook-fill" data-inline="false"></i><span>facebook</span></a></div>
-                  <div class="messengers__item"><a href=""><i class="iconify" data-icon="akar-icons:instagram-fill" data-inline="false"></i><span>instagram</span></a></div>
-                  <div class="messengers__item"><a href=""><i class="iconify" data-icon="akar-icons:telegram-fill" data-inline="false"></i><span>telegram</span></a></div>
+        <div class="courses">
+          <h2>Нетворкинг</h2>
+          <div class="courses__list">
+            <div class="courses__item courses__item--networking">
+              <div class="courses__content" data-scroll>
+                <div class="courses__type">Event</div>
+                <div class="courses__descr">
+                  <h4><a href="networking-item.html">Кинопроизводство</a></h4>
+                  <p>Веселый бранч в компании юристов и продюсеров, где будет возможность под звон бокалов обсудить сложности жизни в кино и быстро придумать способ, как их избежать.</p>
                 </div>
+                <div class="courses__price">
+                  <p class="date">22 марта <span>13:00–15:00</span></p>
+                  <p class="price">3 500 ₽</p>
+                  <p class="place"><span>Москва</span><span></span><span></span><span></span><span>Farro Gastrobar</span><span></span><span></span><span></span><span>ул. Покровка, 1/13/6, стр. 2</span>
+                  </p>
+                </div><a class="courses__link" href="networking-item.html"></a>
+              </div>
+            </div>
+            <div class="courses__item courses__item--networking">
+              <div class="courses__content" data-scroll>
+                <div class="courses__type">Event</div>
+                <div class="courses__descr">
+                  <h4><a href="networking-item.html">Защита прав и интересов актеров</a></h4>
+                  <p>Курс для актеров от опытных юристов в сфере кино и телевидения. Позволит научиться правильно выстраивать отношения с продюсером и агентом, читать свой контракт и выделять в нем главное, а также знать и защищать свои права, пользуясь положениями закона.</p>
+                </div>
+                <div class="courses__price">
+                  <p class="date">8 апреля <span>19:00</span></p>
+                  <p class="price">17 500 ₽</p>
+                  <p class="place"><span>Москва</span><span></span><span></span><span></span><span>Farro Gastrobar</span><span></span><span></span><span></span><span>ул. Пречистенка д. 25</span>
+                  </p>
+                </div><a class="courses__link" href="networking-item.html"></a>
               </div>
             </div>
           </div>

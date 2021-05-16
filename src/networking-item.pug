@@ -1,0 +1,77 @@
+extends templates/layout
+include templates/_mixin-menu
+
+block content
+	header.header(style="background-color: #000;")
+		.header__top
+			.header__logo
+				a(href="/")
+					img(src="images/logo.svg" alt="legal&creative")
+			.mobile-menu.js-mobile-menu
+			nav.header__menu
+				+menu(current)
+		.header__title
+			h1
+				span.title Кинопроизводство
+		.header__bottom
+			.header-bottom
+				.header-bottom__item
+					i.iconify(data-icon="akar-icons:arrow-down-right")
+					p 18 марта четверг
+				.header-bottom__item
+					i.iconify(data-icon="akar-icons:arrow-down-right")
+					p 18:00—19:00
+				.header-bottom__item
+					i.iconify(data-icon="akar-icons:arrow-down-right")
+					p 3 500 рублей
+				.header-bottom__item
+					i.iconify(data-icon="akar-icons:arrow-down-right")
+					p Москва, Farro Gastrobar. ул. Покровка, 1/13/6, стр. 2
+
+	main
+		.about-course
+			div(data-scroll)
+				h3 Цель бранча
+				.about-course__content
+					p Бранч открывает серию событий, где известные юристы в&nbsp;области авторского права будут встречаться с&nbsp;представителями бизнеса и&nbsp;творческих профессий для обмена опытом и&nbsp;обсуждения различных ситуаций, которые возникают на&nbsp;практике.
+					p В&nbsp;бранче &laquo;Кинопроизводство&raquo; примут участие юристы Юлия Сычева, Ирина Никифорова, Анна Гаврилюк, Мария Серебрянская имеют опыт работы в&nbsp;таких компаниях, как Disney, Viacom, Bazelevs, Amedia, ТНТ и&nbsp;в&nbsp;качестве представителя бизнеса Юлия Хамитова (актриса, продюсер, педагог, общественный деятель, со-основатель международного комьюнити Casting Bridge в&nbsp;рамках Российской Недели Кино в&nbsp;Лондоне, автор курса &laquo;Искусство нетворкинга. Правила, которые работают&raquo;).
+
+		.you-learn.bg-black
+			h3 Меню на выбор
+			.you-learn__list
+				.you-learn__item
+					ul
+						li Брускетта с&nbsp;угрём и&nbsp;клубничным кремом и&nbsp;бокал Просекко.
+						li Салат с&nbsp;морепродуктами и&nbsp;хурмой в&nbsp;соусе лайм-терияки и&nbsp;бокал ВиньоВерде Розе.
+				.you-learn__item
+					ul
+						li Тартар из&nbsp;форели с&nbsp;ореховым соусом и&nbsp;хреном и&nbsp;бокал Просекко.
+						li Филе дорадо с&nbsp;соусом аква пацца на&nbsp;подушке из&nbsp;дикого риса и&nbsp;бокал Верментино.
+				.you-learn__item
+					ul
+						li Виттелло тоннато с&nbsp;вяленым мясом и&nbsp;ягодным джемом и&nbsp;бокал Просекко.
+						li Ризотто с&nbsp;белыми грибами и&nbsp;бокал Пино Гриджио.
+			p.note * Любое вино из второй подачи можно заменить на бокал Просекко
+
+		.course-registration
+			div(data-scroll)
+				.course-registration__content
+					h3 Зарегистрироваться
+					.course-registration__form
+						include templates/incl-registration-form
+
+					.course-registration__info
+						.course-registration__map
+							script(type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A86348db42ece96ab82157dd69a01ec663cbf8d2fc0c311036f82e2b16f4882f6&amp;width=100%25&amp;height=250&amp;lang=ru_RU&amp;scroll=true")
+						each item in course.slice(6,7)
+							.type бранч
+							h4= item.name
+							.course-registration__info-list
+								.course-registration__info-item
+									p Москва, Farro Gastrobar. ул. Покровка, 1/13/6, стр. 2
+								.course-registration__info-item
+									p 18 марта четверг
+									p 18:00—19:00
+									.course-registration__price
+										p.price 3 500 рублей
+
