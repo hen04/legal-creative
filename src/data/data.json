@@ -249,7 +249,9 @@
     },
     {
       "img": "images/producer.jpg",
-      "name": "Екатерина Лебедева"
+      "name": "Екатерина Лебедева",
+      "description": "",
+      "descr": []
     }
 
   ]

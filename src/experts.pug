@@ -21,7 +21,7 @@ block content
 		.experts.experts--page
 			h3 Эксперты
 			.experts__list
-				each item in experts
+				each item in experts.slice(0,4)
 					.experts__item
 						.experts__content(data-scroll)
 							.experts__header
