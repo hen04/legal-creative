@@ -1159,7 +1159,13 @@ a {
 	}
 
 	&--course {
-		@include experts($white)
+		@include experts($white);
+		
+		.experts__info {
+			@include responsive(mobile) {
+				flex-flow: column;
+			}
+		}
 	}
 	
 	&--webinar {
