@@ -110,6 +110,7 @@ p {
 
 img {
 	max-width: 100%;
+	display: block;
 }
 
 .wrapper {
@@ -1209,6 +1210,12 @@ a {
 		.experts__item:after {
 			background-color: $black;
 		}
+		
+		.experts__info {
+			@include responsive(mobile) {
+				flex-flow: column;
+			}
+		}
 	}
 
 	&__list {
@@ -1287,11 +1294,8 @@ a {
 	}
 	
 	&__img {
-		display: flex;
-		justify-content: center;
 		min-width: 290px;
-		min-height: 290px;
-		max-width: 290px;
+		width: 290px;
 		overflow: hidden;
 		margin-bottom: 20px;
 
